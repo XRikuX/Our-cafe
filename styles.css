@@ -1,0 +1,237 @@
+/* Общие стили для всего документа */
+
+body {
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal; /* Установка шрифта */
+    margin: 0;
+    padding: 0;
+    background-color: #fff; /* Цвет фона */
+    color: #333; /* Цвет текста */
+    background-image: url('image/background2.jpg'); /* Путь к вашему изображению */
+    background-size: cover; /* Растягиваем изображение на всю область */
+    background-position: center; /* Выравниваем изображение по центру */
+    background-repeat: no-repeat; /* Запрещаем повторение изображения */
+    position: relative; /* Необходимо для overlay */
+}
+
+/* Создаем затемнение поверх изображения */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Цвет затемнения (черный с прозрачностью 0.5) */
+    z-index: 1; /* Устанавливаем поверх изображения */
+}
+
+p {
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-size: 16px; /* Новый размер шрифта */
+}
+
+/* Стили для шапки */
+.header {
+    background-color: #4CAF50; /* Зеленый цвет фона шапки */
+    color: #fff; /* Белый цвет текста */
+    padding: 15px; /* Внутренний отступ */
+    text-align: center; /* Выравнивание текста по центру */
+    transition: background-color 0.3s ease; /* Анимация изменения цвета фона */
+    background-image: url('image/menu.png'); /* Путь к вашему изображению */
+    background-size: cover; /* Растягиваем изображение на всю область */
+    background-position: center; /* Выравниваем изображение по центру */
+    background-repeat: no-repeat; /* Запрещаем повторение изображения */
+    position: relative; /* Необходимо для overlay */
+}
+
+/* При наведении мыши изменяется цвет фона */
+.header:hover {
+    background-color: #46a049; /* Темно-зеленый цвет фона */
+}
+
+/* Анимация для заголовка */
+.header__title {
+    font-size: 24px; /* Размер шрифта */
+    transition: font-size 0.3s ease; /* Анимация изменения размера шрифта */
+}
+
+.oval-container {
+    position: relative;
+    display: inline-block;
+    padding: 15px;
+    font-size: 24px; /* Начальный размер шрифта */
+    transition: font-size 0.3s ease; /* Анимация изменения размера шрифта */
+}
+
+.oval-container::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: calc(1em * 10); /* Определение ширины овала в зависимости от размера шрифта */
+    height: calc(1em * 4.58); /* Определение высоты овала в зависимости от размера шрифта */
+    background-color: #ffffff;
+    border-radius: 50%;
+    z-index: -1;
+    transition: width 0.3s ease, height 0.3s ease; /* Анимация изменения размера овала */
+}
+
+h1 {
+    position: relative;
+    z-index: 1;
+    color: black; /* Цвет текста */
+    text-align: center;
+    line-height: 100px; /* Выравнивание текста по вертикали */
+}
+
+
+/* При наведении мыши изменяется размер шрифта */
+.header:hover .header__title {
+    font-size: 28px; /* Увеличенный размер шрифта */
+    transition: font-size 0.3s ease; /* Анимация изменения размера шрифта */
+}
+
+/* Анимация для ссылок в навигации */
+.nav__link {
+    transition: color 0.3s ease; /* Анимация изменения цвета текста */
+}
+
+/* При наведении мыши изменяется цвет текста ссылок */
+.nav__link:hover {
+    color: #46a049; /* Зеленый цвет текста */
+}
+/* Стили для иконки бургер-меню */
+.burger-icon {
+    display: none;
+}
+
+/* Стили для мобильной навигации */
+.mobile-nav {
+    display: none;
+}
+
+/* При нажатии на иконку бургер-меню показываем мобильную навигацию */
+.burger-icon:checked ~ .mobile-nav {
+    display: block;
+}
+
+/* Стили для пунктов мобильной навигации */
+.mobile-nav__list {
+    list-style: none;
+    padding: 0;
+}
+
+.mobile-nav__item {
+    margin-bottom: 10px;
+}
+
+.mobile-nav__link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.mobile-nav__link:hover {
+    color: #46a049;
+}
+
+/* Стили для иконки бургер-меню */
+.burger-icon-label {
+    cursor: pointer;
+    padding: 10px;
+    display: block;
+}
+
+.burger-line {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin-bottom: 5px;
+}
+
+/* Анимация для иконки бургер-меню */
+.burger-icon:checked ~ .burger-icon-label .burger-line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger-icon:checked ~ .burger-icon-label .burger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-icon:checked ~ .burger-icon-label .burger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Стили для основного контента */
+.main {
+    display: flex; /* Использование Flexbox */
+    flex-direction: column; /* Отображение элементов в колонку */
+    align-items: center; /* Выравнивание по центру по вертикали */
+    padding: 20px; /* Внутренний отступ */
+}
+
+/* Стили для разделов */
+.section {
+    opacity: 0;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    margin: 20px;
+    max-width: 876px;
+}
+
+.section__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Анимация для появления разделов */
+.section.animate {
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Стили для иконки скролла наверх */
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.scroll-to-top a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: #333;
+    border-radius: 50%;
+    text-decoration: none;
+    color: #fff;
+    font-size: 24px;
+}
+
+/* Стили для футера */
+.footer {
+    background-color: #333; /* Цвет фона */
+    color: #fff; /* Цвет текста */
+    text-align: center; /* Выравнивание текста по центру */
+}
+
+/* М
